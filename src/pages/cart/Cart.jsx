@@ -21,7 +21,7 @@ export function Cart() {
             return fin;
         }
     return (
-        <div className="h-[100vh] overflow-y-scroll overflow-x-hidden flex flex-col items-center">
+        <div className="h-[90vh] overflow-y-scroll overflow-x-hidden flex flex-col items-center py-8">
             <div className=" lg:h-[15vh] md:h-[9vh]  w-[100vw] h-[10vh] text-2xl flex justify-center items-center">Your cart items</div>
             <div className="lg:h-[6vh] md:h-[6vh]  w-[100vw] h-[8vh]  flex justify-center items-center text-custom underline font-semibold text-sm"><Link to='/' >Back to Home</Link></div>
                    { cart.length  ? 

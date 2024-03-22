@@ -1,21 +1,23 @@
-import { products } from '../data/products'
+
 import { addToCart } from '../pages/cart/CartSlice'
-import { useDispatch} from "react-redux"
+import { useDispatch, useSelector} from "react-redux"
 import { FaRegHeart } from "react-icons/fa";
 import { toast } from 'react-toastify'
+import Filter from './Filter';
 import 'react-toastify/dist/ReactToastify.css';
 import './Product.css'
 export function Product()
 {
+    const products =useSelector(state=>state.FilteredProducts.products)
     const getImg=(item)=>{
-        let fin;
+        let findMain;
         item.images.forEach(i=>{
             if(i.main)
             {
-                fin=i.src;
+                findMain=i.src;
             }
         })
-        return fin;
+        return findMain;
     }
     const dispatch=useDispatch()
     const handelOut=(item)=>{
@@ -25,15 +27,16 @@ export function Product()
      toast.error("item is not in stock")
     }
     return(
-<div className='flex h-[100vh] overflow-hidden'>
-    <div className='w-[20vw] filter'>
-        filter
+<div className='flex flex-col h-[100vh] overflow-hidden'>
+    <div className='filter'>
+        <Filter />
+    
     </div>
-    <div className='pros'><div className='my-2 text-2xl w-full flex justify-center  h-7 font-semibold '>All Products</div>
-        <div className='flex h-[86vh] w-[80vw] flex-wrap   overflow-y-scroll proCont '>
+    <div className='pros'><div className='my-4 text-2xl w-[100vw] flex justify-center  h-7 font-semibold '>All Products</div>
+        <div className='flex h-[86vh] w-[100vw] flex-wrap overflow-y-scroll proCont '>
            
             {    
-                products.length ? products.map(item=><div key={item.id} className=' m-2 gap-y-1 w-[200px] h-[310px] flex flex-col proDiv '>
+                products.length ? products.map(item=><div key={item.id} className=' m-2 gap-y-1 w-[200px] h-[310px] flex flex-col proDiv justify-center'>
                        <div className=' bg-black w-[200px] h-[250px] rounded-[15px] flex justify-center flex-wrap items-center proUp'>
                      
                         <img src={getImg(item)} className='  w-[200px] h-[200px]  rounded-[15px]  object-contain object-center proImg' />

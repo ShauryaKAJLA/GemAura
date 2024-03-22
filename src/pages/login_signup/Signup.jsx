@@ -6,8 +6,11 @@ const Signup = () => {
   const { 
     register, 
     handleSubmit, 
+    setError,
+    getValues,
+    clearErrors,
     formState: { errors,isSubmitted,isSubmitting } } = useForm();
-    const submitData=()=>{
+    const submitData=(data)=>{
       return new Promise((resolve,reject)=>{
       setTimeout(()=>{
         resolve();
@@ -15,8 +18,16 @@ const Signup = () => {
     })
     }
 const onSubmit =async (data) =>{ 
-     await submitData();
+  console.log(data.password===data.enter)
+  if(data.password===data.enter)
+  {
+    await submitData(data);
     console.log(data)
+  }
+  else
+  {
+    setError("match",{message:"Password doesnot match"})
+  }
 };
 
   return (
@@ -24,19 +35,23 @@ const onSubmit =async (data) =>{
     <div className=' tra1 contlog flex flex-col justify-center'>
     <div className='msg flex flex-col justify-center gap-y-[3vh] my-1'> 
       <div className='text-custom text-4xl font-semibold '>WELCOME</div>
-      <div className=' lg:text-lg md:text-base text-sm flex justify-center flex-wrap text-center ww'>Welcome! please enter username and password</div>
+      <div className=' lg:text-lg md:text-base text-sm flex justify-center flex-wrap text-center ww'>Create a new Account Enter Email and password</div>
     </div>
     <div className='main flex flex-col justify-center '>
   <div className=' text-custom text-4xl p-[3vh]'>Sign Up</div>
       <div className='contfor '>
       <form onSubmit={handleSubmit(onSubmit)} className='form flex flex-col justify-center'>
         
-      <input  className='pp inp fo hover:scale-105 transition-all' placeholder='Email'  {...register("Email",{required:{value:true,message:"This field is required"},minLength:{value:11,message:"Invalid Email name"}})}  />
-            <div>{errors.Email&&errors.Email.message}</div>
+      <input  className='pp inp fo hover:scale-105 transition-all' placeholder='Email'  {...register("Email",{required:{value:true,message:"This field is required"},minLength:{value:11,message:"Invalid Email name"},pattern:{value:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,message:"Invalid Email"}})}  />
+            <div className='flex justify-center w-full text-red-300'>{errors.Email&&errors.Email.message}</div>
             <input  className='pp inp fo hover:scale-105 transition-all' placeholder='password' {...register("password", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"},pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/,message:"Generate a strong password"}})} />
-            <div>{errors.password&&errors.password.message}</div>   
-      <input type="submit" disabled={isSubmitting} className=' sb hover:scale-105 transition-all flex justify-center flex-wrap items-center inp'/>
-      
+            <div className='flex justify-center w-full text-red-300'>{errors.password&&errors.password.message}</div>   
+            <input  className='pp inp fo hover:scale-105 transition-all' placeholder='Re-enter password' {...register("enter", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"}})} />
+            <div className='flex justify-center w-full text-red-300'>{errors.enter&&errors.enter.message}</div>   
+            
+      <div className='flex justify-center w-full text-red-300'>{errors.match&&errors.match.message}</div>   
+      <input type="submit" disabled={isSubmitting} className=' sb hover:scale-105 transition-all flex justify-center flex-wrap items-center inp' onClick={()=>clearErrors("match")}/>
+      {/* <div className='flex justify-center w-full text-red-300'>{errors.dataVerified&&errors.dataVerified.message}</div>    */}
   </form>
       </div>
     </div>

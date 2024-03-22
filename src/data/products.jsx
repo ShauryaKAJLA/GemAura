@@ -2,22 +2,20 @@
 export const products=[
     {
         id:1,
-        name:"Colambia emereled ring",
-        desc:"rare emereled fitted in ring by experts",
+        name:"Colambia emerald ring",
+        desc:"rare emerald fitted in ring by experts",
         metal:{
-            type:"gold",
+            type:"White Gold",
             pricePerGram:6500,
             weightInGram:20,
         },
         Gem:{
-            type:"emereled",
+            type:"emerald",
             weightInCaret:3,
             totalPrice:100000,
         },
-         type:{
                 gender:"m",
-                type_of:"ring"
-            },
+                type_of:"ring",
               images:[
                 {
                     src:'/src/assets/emereled.jpg' ,
@@ -52,13 +50,47 @@ export const products=[
             weightInCaret:2,
             totalPrice:200000,
         },
-         type:{
-                gender:"F",
-                type_of:"Ring"
-            },
+        gender:"w",
+        type_of:"Ring",
               images:[
                 {
                     src:'/src/assets/diamond.webp',
+                    main:true  
+                },
+                {
+                    src:"jicsid",
+                    main:false
+                },
+                {
+                    src:"jicsid",
+                    main:false
+                },
+                {
+                    src:"jicsid",
+                    main:false
+                },
+              ],
+              instock:true
+    },
+    {
+        id:3,
+        name:"Diamond Necklace",
+        desc:"rare Diamond fitted in necklace by experts",
+        metal:{
+            type:"Gold",
+            pricePerGram:8000,
+            weightInGram:100,
+        },
+        Gem:{
+            type:"diamond",
+            weightInCaret:2,
+            totalPrice:2000000,
+        },
+                gender:"k",
+                type_of:"necklace",
+              images:[
+                {
+                    src:'/src/assets/necklace.png',
                     main:true  
                 },
                 {

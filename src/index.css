@@ -20,9 +20,18 @@
 {
     color: white;
 }
-
+.inp:focus
+{
+    background-color:rgba(209, 69, 69, 0.80);
+}
 .app
 {
     width: 100vw;
     height: 100vh;
+}
+.inp:-webkit-autofill,
+.inp:-webkit-autofill:hover, 
+.inp:-webkit-autofill:focus, 
+.inp:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgba(209, 69, 69, 0.80) inset !important;
 }

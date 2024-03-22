@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form';
 import sin from '../../assets/sin.jpg'
 const Login = () => {
-  
+  const navigate=useNavigate();
         const { 
             register, 
             handleSubmit, 
+            setError,
             formState: { errors,isSubmitted,isSubmitting } } = useForm();
             const submitData=()=>{
               return new Promise((resolve,reject)=>{
@@ -18,6 +19,8 @@ const Login = () => {
         const onSubmit =async (data) =>{ 
              await submitData();
             console.log(data)
+             setError("LoggedErr",{message:"Invalid details"})
+             navigate("/")
         };
     
   return (
@@ -32,12 +35,13 @@ const Login = () => {
         <div className='contfor '>
         <form onSubmit={handleSubmit(onSubmit)} className='form flex flex-col justify-center'>
           
-            <input  className='pp inp fo hover:scale-105 transition-all' placeholder='Email'  {...register("Email",{required:{value:true,message:"This field is required"},minLength:{value:11,message:"Invalid Email name"}})}  />
+            <input  className='pp inp fo hover:scale-105 transition-all text-white' placeholder='Email'  {...register("Email",{required:{value:true,message:"This field is required"},minLength:{value:11,message:"Invalid Email name"}})}  />
             <div className='flex justify-center w-full text-red-300'>{errors.Email&&errors.Email.message}</div>
-            <input  className='pp inp fo hover:scale-105 transition-all' placeholder='password' {...register("password", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"},pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/,message:"Generate a strong password"}})} />
+            <input  className='pp inp fo hover:scale-105 transition-all text-white' placeholder='password' {...register("password", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"},pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/,message:"Generate a strong password"}})} />
             <div className='flex justify-center w-full text-red-300'>{errors.password&&errors.password.message}</div>   
       <input type="submit" disabled={isSubmitting} className=' sb hover:scale-105 transition-all flex justify-center flex-wrap items-center inp'/>
-      
+      <div className='flex justify-center w-full text-red-300'>{errors.dataVerified&&errors.password.message}</div>   
+    
     </form>
         </div>
       </div>
