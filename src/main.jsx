@@ -7,7 +7,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './router'
 import { ToastContainer} from 'react-toastify';
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <Provider store={store}>
+    <Provider store={store} >
     <RouterProvider router={router} />
     <ToastContainer position='bottom-left' theme='colored'/>
     </Provider>

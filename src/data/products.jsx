@@ -14,27 +14,15 @@ export const products=[
             weightInCaret:3,
             totalPrice:100000,
         },
-                gender:"m",
-                type_of:"ring",
-              images:[
-                {
-                    src:'/src/assets/emereled.jpg' ,
-                    main:true  
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-              ],
-              instock:true
+        gender:"m",
+        type_of:"ring",
+        images:[
+                    '/src/assets/emerald.png' ,
+                   "/src/assets/emerald2.webp",
+                    "/src/assets/emerald3.webp",
+                    "/src/assets/emerald4.webp"
+        ],
+        instock:true
     },
     {
         id:2,
@@ -53,22 +41,10 @@ export const products=[
         gender:"w",
         type_of:"Ring",
               images:[
-                {
-                    src:'/src/assets/diamond.webp',
-                    main:true  
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
+                    '/src/assets/diamond.webp',
+                    "jicsid",
+                    "jicsid",
+                   "jicsid",
               ],
               instock:true
     },
@@ -89,22 +65,10 @@ export const products=[
                 gender:"k",
                 type_of:"necklace",
               images:[
-                {
-                    src:'/src/assets/necklace.png',
-                    main:true  
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
-                {
-                    src:"jicsid",
-                    main:false
-                },
+                  '/src/assets/necklace.png',
+                    "jicsid",
+                    "jicsid",
+                    "jicsid",
               ],
               instock:false
     },

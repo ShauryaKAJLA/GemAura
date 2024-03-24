@@ -38,10 +38,11 @@ const Filter=()=>{
         return l
     }, [products])
     const [value,setValue]=useState(mx)
-    const [gender,setGender]=useState("All")
-    const [metal,setMetal]=useState("All");
+    const [gender,setGender]=useState(filter.gender)
+    console.log(gender)
+    const [metal,setMetal]=useState(filter.Metal);
     const [metalList,setMetalList]=useState(findmetallist)
-    const [Gem,setGem]=useState("All");
+    const [Gem,setGem]=useState(filter.Gem);
     const [Gemlist,setGemList]=useState(findgemlist);
     const  handelPricechange=(e)=>{
         setValue(e.target.value)
@@ -76,22 +77,22 @@ const Filter=()=>{
      <div className="Filter w-[100vw] text-2xl font-medium justify-center flex my-3">Filters</div>
      <div className="flex justify-around">
      <div className="text-custom flex gap-[1vw]  sm:text-lg text-sm">Price: <div className="flex flex-col sm:text-base text-xs">  <input type="range" max={mx} min={mn} value={value} onChange={(e)=>handelPricechange(e)} className="sm:w-[10vw] w-[70px]  h-1 my-1 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-600"/> <div className="flex justify-center range sm:text-base text-xs"> &#x20B9; {value}</div></div></div>
-    <div className="text-custom  sm:text-lg text-sm gap-[1vw] flex">Gender: <div><select   value={gender} onChange={(e)=>handelGenderChange(e)} className="text-black sm:w-[50px] w-[37px] sm:text-base text-sm">
-        <option value="All" >All</option>
+    <div className="text-custom  sm:text-lg text-sm gap-[1vw] flex">Gender: <div><select    value={gender} onChange={(e)=>handelGenderChange(e)} className="text-black md:w-[80px]  sm:w-[50px] w-[37px] sm:text-base text-sm">
+        <option value="All"  >All</option>
         <option value="m">Men</option>
         <option value="w">Women</option>
         <option value="k">Kids</option>
     </select></div></div>
-    <div className="text-custom  sm:text-lg text-sm gap-[1vw] flex">Metal: <div> <select value={metal} onChange={(e)=>handelMetalChange(e)} className="text-black sm:w-[50px] w-[37px] sm:text-base text-sm">
-        {metalList.map(i=> <option value={i}>{i}</option>)}
+    <div className="text-custom  sm:text-lg text-sm gap-[1vw] flex">Metal: <div> <select value={metal} onChange={(e)=>handelMetalChange(e)} className="text-black md:w-[80px]  sm:w-[50px] w-[37px] sm:text-base text-sm">
+        {metalList.map(i=> <option value={i} key={i}>{i}</option>)}
     </select> 
     </div>
     </div>  
     <div className="text-custom  sm:text-lg text-sm flex gap-[1vw] ">
 
     Gem:
-    <div><select value={Gem} onChange={(e)=>handelGemChange(e)} className="text-black sm:w-[50px] w-[37px] sm:text-base text-sm">
-        {Gemlist.map(i=> <option value={i}>{i}</option>)}
+    <div><select value={Gem} onChange={(e)=>handelGemChange(e)} className="text-black md:w-[80px]  sm:w-[50px] w-[37px] sm:text-base text-sm">
+        {Gemlist.map(i=> <option value={i} key={i}>{i}</option>)}
     </select>
     </div>
     </div>

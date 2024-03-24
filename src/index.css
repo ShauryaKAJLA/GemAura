@@ -35,3 +35,36 @@
 .inp:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px rgba(209, 69, 69, 0.80) inset !important;
 }
+.colorCust
+{
+    background-color:rgb(102, 43, 43);
+}
+/* Scroll bar */
+/* width */
+::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(209, 69, 69, 0.80);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(90, 85, 85);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(209, 69, 69, 0.80);
+  }
+  
+
+
+
+
+  .Error
+  {
+      object-fit: contain;
+  }
