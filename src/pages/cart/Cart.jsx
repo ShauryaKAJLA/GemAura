@@ -1,24 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addQuantity, reduceQuantity, removeItem } from './CartSlice';
+import { addQuantity, reduceQuantity, removeItem ,changeSizeCart } from './CartSlice';
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
+import { MdError } from "react-icons/md";
 import './cart.css'
 export function Cart() {
     const dispatch = useDispatch();
     const cart = useSelector(state=>state.cart.cart);
     var price=0;
         cart.forEach(item=>{
+            if(item.instock)
             price+=(item.Gem.totalPrice+item.metal.weightInGram*item.metal.pricePerGram)*item.quantity;
         })
-        const getImg=(item)=>{
-            let fin;
-            item.images.forEach(i=>{
-                if(i.main)
-                {
-                    fin=i.src;
-                }
-            })
-            return fin;
+        const handelChangeSize=(id,e)=>{
+                 
         }
     return (
         <div className=" flex flex-col items-center py-8 min-h-[49vh]">
@@ -28,9 +23,11 @@ export function Cart() {
             <div className="lg:w-[70vw] md:w-[80vw]  sm:w-[95vw] w-[99vw] border-t  mt-[5vh]">
            
             {cart.map(item=><div key={item.id} className="flex justify-between border-b my-[5vh] py-[2vh] ">
-                    <div className="flex gap-x-[2vw] h-[90px]  ">
+                    <div className="flex gap-x-[2vw] h-[90px] ">
                   <Link to={`/productInfo/${item.id}`}>
-                      <div className="w-[90px] h-[90px] flex justify-center items-center rounded-[15%] bg-black">
+                  
+                      <div className="w-[90px] h-[90px] flex flex-col justify-center items-center rounded-[15%] bg-black">
+                        
                         <img src={item.images[0]} className="w-[60px] shrink-0 object-contain object-center  " />
                     </div>
                     </Link>
@@ -43,6 +40,7 @@ export function Cart() {
                                     </Link>
                                     <div className=" sm:text-sm text-xs text-custom font-semibold ">
                                     <button onClick={() => dispatch(removeItem(item.id))} className="hover:underline"><MdDelete size={25}/></button>
+                                    {!item.instock&& <div className=" text-red-600 flex  items-center "><MdError/>&nbsp; Out of stock</div> }
                                     </div>
                                 </div>
                                 </div>
@@ -65,6 +63,12 @@ export function Cart() {
                                     <div className="w-[10vw] head">Total: </div>
                                     <div>{(item.Gem.totalPrice+item.metal.pricePerGram*item.metal.weightInGram)*item.quantity}</div>
                                 </div>
+
+                                {item.type_of.toLowerCase()=="ring"&&<div className="flex">
+                                    <div className="w-[10vw] head">Change Size: </div>
+                                    <div><input type="number" value={item.size} onChange={(e)=>dispatch(changeSizeCart({id:item.id,size:e.target.value}))} className='inp sm:w-[100px] w-[50px] h-[30px]' /></div>
+                                </div>
+                                }
                                 </div>
                             </div>
                )

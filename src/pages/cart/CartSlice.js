@@ -22,9 +22,11 @@ export const CartSlice= createSlice({
                         desc:action.payload.desc,
                         metal:action.payload.metal,
                         Gem:action.payload.Gem,
-                         type:action.payload.type,
+                         type_of:action.payload.type_of,
                          images:action.payload.images,
-                         quantity:1
+                         quantity:1,
+                         instock:action.payload.instock,
+                         size:action.payload.size
                     }
                      state.cart.push(newitem);
               }
@@ -38,9 +40,12 @@ export const CartSlice= createSlice({
         },
         removeItem : (state,action)=>{
             state.cart=state.cart.filter(item=>item.id!=action.payload)
+        },
+        changeSizeCart:(state,action)=>{
+            state.cart=state.cart.filter(item=>item.id===action.payload.id?[item,item.size=action.payload.size]:item)
         }
     }
 })
 
-export const {addToCart,addQuantity,reduceQuantity,removeItem} = CartSlice.actions
+export const {addToCart,addQuantity,reduceQuantity,removeItem,changeSizeCart} = CartSlice.actions
 export default CartSlice.reducer

@@ -74,6 +74,13 @@
     width: 80%;
 }
 
+@media screen and (max-width:1337px) 
+{
+     .buycart
+     {
+        width: 90%;
+     }   
+}
 
 @media screen and (max-width:926px)
 {
@@ -88,6 +95,10 @@
         justify-content: center;
     }
     .buycart button
+    {
+        width: 150px;
+    }
+    .buycart input
     {
         width: 150px;
     }
@@ -155,6 +166,14 @@
 
 
 }
+
+@media screen and (min-width:450px) 
+{
+    .contProductImg   
+    {
+        margin-top: 5vh;
+    }
+}
 @media screen and (max-width:450px)
 {
 .contMainImg
@@ -169,10 +188,19 @@
 .continfo
 {
     width: 95vw;
+    
+}
+.Phonegap
+{
+    column-gap: 10px;
 }
 .ProductDesc
 {
     width: 80vw;
+}
+.name
+{
+    margin-top: 5vh;
 }
 }
 

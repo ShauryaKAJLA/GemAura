@@ -56,7 +56,7 @@ const NavBar = () => {
       </div>
       </div>
       <Link to=""><li className='transition-all hover:scale-105 hover:underline'>Contact Us</li></Link>
-      <Link to=""><li className='transition-all hover:scale-105 hover:underline'>Get help?</li></Link>
+      <Link to="/AboutUs"><li className='transition-all hover:scale-105 hover:underline'>About us</li></Link>
       </ul>
       </div>
       

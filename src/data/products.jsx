@@ -22,7 +22,8 @@ export const products=[
                     "/src/assets/emerald3.webp",
                     "/src/assets/emerald4.webp"
         ],
-        instock:true
+        instock:true,
+        size:20
     },
     {
         id:2,
@@ -46,7 +47,8 @@ export const products=[
                     "jicsid",
                    "jicsid",
               ],
-              instock:true
+              instock:true,
+              size:20
     },
     {
         id:3,

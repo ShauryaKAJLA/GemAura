@@ -7,6 +7,10 @@ import Login from "./pages/login_signup/Login";
 import {Cart} from './pages/cart/Cart'
 import {Product} from './products/Product'
 import ProductInfo from "./pages/productInfo/productInfo";
+import ErrorPage from "./pages/Reusable/404Error/errorPage";
+import NavBar from "./pages/Reusable/Navbar/NavBar";
+import Footer from "./pages/Reusable/Footer/Footer";
+import About_us from "./pages/AboutUs/About_us";
 const router=createBrowserRouter([
     {
         path:'/',
@@ -28,8 +32,12 @@ const router=createBrowserRouter([
             path:'/productInfo/:id',
             element:<ProductInfo/>
         },
+        {
+            path:'/Aboutus/',
+            element:<About_us/>
+        }
 
-    ]
+    ],errorElement:<div className="overflow-hidden h-screen"> <NavBar/> <div className="min-h-[92vh] h-[92vh]   overflow-x-hidden overflow-y-scroll relative"><ErrorPage/> <Footer/></div></div>
     },
     {
         path:'/Login_Signup/',
@@ -43,6 +51,8 @@ const router=createBrowserRouter([
             element:<Login/>
         }
     ]
-    }
-])
+    },
+ 
+]
+)
 export default router;
