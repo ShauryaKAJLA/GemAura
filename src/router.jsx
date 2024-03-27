@@ -11,6 +11,7 @@ import ErrorPage from "./pages/Reusable/404Error/errorPage";
 import NavBar from "./pages/Reusable/Navbar/NavBar";
 import Footer from "./pages/Reusable/Footer/Footer";
 import About_us from "./pages/AboutUs/About_us";
+import Contactus from "./pages/ContactUs/Contactus";
 const router=createBrowserRouter([
     {
         path:'/',
@@ -35,6 +36,10 @@ const router=createBrowserRouter([
         {
             path:'/Aboutus/',
             element:<About_us/>
+        },
+        {
+            path:'/Contactus/',
+            element:<Contactus/>
         }
 
     ],errorElement:<div className="overflow-hidden h-screen"> <NavBar/> <div className="min-h-[92vh] h-[92vh]   overflow-x-hidden overflow-y-scroll relative"><ErrorPage/> <Footer/></div></div>

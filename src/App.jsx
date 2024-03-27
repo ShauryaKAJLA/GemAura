@@ -7,7 +7,7 @@ function App() {
   return (
     <div className='overflow-hidden app '>
       <NavBar />
-      <div className="min-h-[92vh] h-[92vh]   overflow-x-hidden overflow-y-scroll relative">
+      <div className="min-h-[92vh] h-[92.2vh]   overflow-x-hidden overflow-y-scroll relative flex flex-col justify-between">
       <Outlet />
       <Footer/>
       </div>

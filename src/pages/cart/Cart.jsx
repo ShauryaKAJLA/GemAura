@@ -66,7 +66,7 @@ export function Cart() {
 
                                 {item.type_of.toLowerCase()=="ring"&&<div className="flex">
                                     <div className="w-[10vw] head">Change Size: </div>
-                                    <div><input type="number" value={item.size} onChange={(e)=>dispatch(changeSizeCart({id:item.id,size:e.target.value}))} className='inp sm:w-[100px] w-[50px] h-[30px]' /></div>
+                                    <div><input type="number" value={item.size} onChange={(e)=>dispatch(changeSizeCart({id:item.id,size:e.target.value}))} className='inp sm:w-[55px] w-[50px] h-[30px]' /></div>
                                 </div>
                                 }
                                 </div>

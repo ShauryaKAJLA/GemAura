@@ -38,7 +38,7 @@ const NavBar = () => {
 
   }
   return (
-    <nav className=' contnav flex  top-[0px] justify-between w-screen px-3 h-14 sticky z-[1]'>
+    <nav className=' contnav flex  top-[0px] justify-between w-screen px-3 h-14 sticky z-[2]'>
       
     <div className='logo flex justify-center items-center  gap-3 transition-all '>
       <FiMenu onClick={handelMenuClick} className='hover:scale-110 transition-all menu'size={20} />
@@ -55,8 +55,8 @@ const NavBar = () => {
       <Link  onClick={()=> { dispatch(changeGender("k")); dispatch(changeMetal("All")); dispatch(changeGem("All"))  }} to="/products/"><li className='flex w-[100px] transition-all hover:scale-105 hover:underline' >Kids</li></Link>
       </div>
       </div>
-      <Link to=""><li className='transition-all hover:scale-105 hover:underline'>Contact Us</li></Link>
-      <Link to="/AboutUs"><li className='transition-all hover:scale-105 hover:underline'>About us</li></Link>
+      <Link to="/ContactUs"><li className='transition-all hover:scale-105 hover:underline'>Contact Us</li></Link>
+      <Link to="/AboutUs"><li className='transition-all hover:scale-105 hover:underline'>About Us</li></Link>
       </ul>
       </div>
       

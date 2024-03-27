@@ -10,9 +10,35 @@ export const CartSlice= createSlice({
     initialState,
     reducers:{
         addToCart: (state, action) => {
+           
               if(state.cart.find(item=>item.id==action.payload.id))
               {
+                if(!action.payload.hasOwnProperty('size'))
                   state.cart=state.cart.filter(item=>item.id==action.payload.id?[item,item.quantity+=1]:item)
+                else
+                {
+                    if(state.cart.find(item=>(item.id==action.payload.id&&item.size==action.payload.size)))
+                    {
+                        state.cart=state.cart.filter(item=>(item.id==action.payload.id&&item.size==action.payload.size)?[item,item.quantity+=1]:item)
+                    }
+                    else
+                    {
+                    let newitem= {
+                        id:action.payload.id,
+                        name:action.payload.name,
+                        desc:action.payload.desc,
+                        metal:action.payload.metal,
+                        Gem:action.payload.Gem,
+                         type_of:action.payload.type_of,
+                         images:action.payload.images,
+                         quantity:1,
+                         instock:action.payload.instock,
+                         size:action.payload.size
+                    }
+                     state.cart.push(newitem);
+                    }
+                }
+               
             }
             else
             {
@@ -30,6 +56,7 @@ export const CartSlice= createSlice({
                     }
                      state.cart.push(newitem);
               }
+            
           },
         addQuantity : (state,action)=>{
             state.cart=state.cart.filter(item=>item.id==action.payload?[item,item.quantity+=1]:item)

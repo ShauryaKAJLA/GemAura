@@ -6,9 +6,9 @@ import './AboutUs.css'
 const About_us=()=>{
   return(
     <div className='h-[100vh] ContAbout '>
-        <div className='Back text-white absolute z-[1] top-3 left-4 '> <Link to="/"><RxCross1 size={20}/></Link></div>
+        <div className='Back text-white absolute top-3 left-4 z-[1]'> <Link to="/"><RxCross1 size={20}/></Link></div>
         <div className='AboutUsImgCont'>
-            <img src={AboutUs} alt="" className='AboutUsImg'/>
+            <video src="https://media.istockphoto.com/id/1429305667/video/bride-red-neckless.mp4?s=mp4-640x640-is&k=20&c=ReLvVPLr0LnuPwo7z7CbXG9CgxNlvuzIpOz3qRkIwEE=" autoPlay loop className='AboutUsImg'/>
         </div>
         <div className='ContText'>
         <div className='Head dancing-script-Customtext'>About Gem Aura</div>

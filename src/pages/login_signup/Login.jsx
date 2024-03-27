@@ -28,7 +28,7 @@ const Login = () => {
     <div className=' tra contlog flex flex-col justify-center'>
       <div className='msg flex flex-col justify-center gap-y-[3vh] my-1'> 
         <div className='text-custom text-4xl font-semibold '>WELCOME</div>
-        <div className=' lg:text-lg md:text-base text-sm flex justify-center flex-wrap text-center ww'>Welcome back! please enter username and password</div>
+        <div className=' lg:text-lg md:text-base text-sm flex justify-center flex-wrap text-center ww'>Welcome back! please enter Email and password</div>
       </div>
       <div className='main flex flex-col justify-center '>
     <div className=' text-custom text-4xl p-[3vh]'>Login</div>
@@ -36,11 +36,11 @@ const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)} className='form flex flex-col justify-center'>
           
             <input  className='pp inp fo hover:scale-105 transition-all text-white' placeholder='Email'  {...register("Email",{required:{value:true,message:"This field is required"},minLength:{value:11,message:"Invalid Email name"}})}  />
-            <div className='flex justify-center w-full text-red-300'>{errors.Email&&errors.Email.message}</div>
+            <div className='flex justify-center  w-full text-red-300 text-xs '>{errors.Email&&errors.Email.message}</div>
             <input  className='pp inp fo hover:scale-105 transition-all text-white' placeholder='password' {...register("password", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"},pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/,message:"Generate a strong password"}})} />
-            <div className='flex justify-center w-full text-red-300'>{errors.password&&errors.password.message}</div>   
+            <div className='flex justify-center  w-full text-red-300 text-xs '>{errors.password&&errors.password.message}</div>   
       <input type="submit" disabled={isSubmitting} className=' sb hover:scale-105 transition-all flex justify-center flex-wrap items-center inp'/>
-      <div className='flex justify-center w-full text-red-300'>{errors.dataVerified&&errors.password.message}</div>   
+      <div className='flex justify-center w-full text-red-300 ' >{errors.dataVerified&&errors.password.message}</div>   
     
     </form>
         </div>
