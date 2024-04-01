@@ -1,11 +1,15 @@
 import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import sin from '../../assets/sin.jpg'
 import logo from '../../assets/Backless_bg.png'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+
+import axios from "axios";
+
 const Signup = () => {
+  const [message, setMessage] = useState('');
   const [isShown,SetIsShown]=useState(false);
   const [isShownMatch,SetIsShownMatch]=useState(false);
   const { 
@@ -15,25 +19,29 @@ const Signup = () => {
     getValues,
     clearErrors,
     formState: { errors,isSubmitted,isSubmitting } } = useForm();
-    const submitData=(data)=>{
-      return new Promise((resolve,reject)=>{
-      setTimeout(()=>{
-        resolve();
-      },1000)
-    })
+const navigate = useNavigate();
+const onSubmit=async (data)=>{
+  const{Email,password,enter}=data;
+  if (Email && password && (password === enter)) {
+  try {
+    const response = await axios.post('http://localhost:5000/signup', data);
+    setMessage(response.data.message);
+    if (response.data.message === "Successfully registered") {
+      navigate('/Login_SignUp/login');
     }
-const onSubmit =async (data) =>{ 
-  console.log(data.password===data.enter)
-  if(data.password===data.enter)
-  {
-    await submitData(data);
-    console.log(data)
+  } catch (error) {
+    //console.error('Error:', error);
+    if (error.response && error.response.data) {
+      setMessage(error.response.data.message);
+    } else {
+      setMessage('An error occurred');
+    }
   }
-  else
-  {
-    setError("match",{message:"Password doesnot match"})
-  }
-};
+ }
+else {
+ setMessage('Passwords do not match');
+}
+}
 
   return (
     <div className='flex flex-row-reverse papa '> 
@@ -60,6 +68,8 @@ const onSubmit =async (data) =>{
   </form>
       </div>
     </div>
+    {message && <div className='message' style={{ color: 'rgba(209, 69, 69, 0.80)' }}>{message}</div>}
+
       <Link to="/Login_SignUp/login" className='mt-3 text-custom hover:underline md:text-base text-sm'>Have an account? / login</Link>
     </div>
     <div className='contimg tra '><img src={sin} className='img '/><div className='  absolute z-[1] bottom-0 right-0 w-[150px] LSlogo'><Link to="/"> <img src={logo}  alt="" /></Link></div></div> </div>
