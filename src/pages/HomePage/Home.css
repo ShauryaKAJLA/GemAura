@@ -1,0 +1,248 @@
+/* Crousal Home page */
+.CrousalHomeMainContainer
+{
+    height: 80vh;
+    width: 100vw;
+    position: relative;
+}
+.CrousalHomeContainerOverlay
+{
+    background: rgba(0, 0, 0, 0.329);
+}
+.CrousalHomeContainerImageDiv
+{
+    height: 80vh;
+    width: 100vw;
+    background-color: black;
+}
+.CrousalHomeContainerImage{
+    height: 80vh;
+    width: 100vw;
+    object-fit: cover;
+    position: relative;
+}
+.CrousalHomeContainerTextDiv
+{
+    height: 50vh;
+    position: absolute;
+    top:15%;
+    left: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2vh;
+    padding: 40px;
+    border-radius: 10px;
+    z-index: 2;
+    /* box-shadow: 0px 0px 8px 1px rgba(255, 255, 255, 0.1);
+    background-color: rgba(0, 0, 0, 0.123); */
+}
+.caveat-custom{
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+.CrousalHomeContainerTextHead
+{
+     display: flex;
+    width: 100%;
+}
+.CrousalHomeContainerTextDesc
+{
+   max-width: 30vw;
+}
+.isSelected
+{
+    opacity: 1;
+    display: flex;
+    animation: cen;
+    animation-duration: 500ms;
+    animation-timing-function: ease;
+   
+}
+@keyframes cen {
+    from{
+        transform: scale(0.90);
+    }
+    to{
+        transform: scale(1);
+    }
+    
+}
+.isNotSelected
+{
+    opacity: 0;
+    display: none;
+}
+
+@media screen and (max-width:1140px)
+{  
+    .CrousalHomeMainContainer
+{
+    height: 70vh;
+    width: 100vw;
+    position: relative;
+}
+.CrousalHomeContainerImageDiv
+{
+    height: 70vh;
+    width: 100vw;
+    background-color: black;
+}
+.CrousalHomeContainerImage{
+    height: 70vh;
+    width: 100vw;
+    object-fit: cover;
+    position: relative;
+}
+
+.caveat-custom{
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+.CrousalHomeContainerTextHead
+{
+    font-size:5vw;
+    display: flex;
+    width: 100%;
+}
+.CrousalHomeContainerTextDesc
+{
+   max-width: 40vw;
+   font-size: 2.5vw;
+}
+}
+
+@media screen and (max-width:795px)
+{  
+    .CrousalHomeMainContainer
+{
+    height: 70vh;
+    width: 100vw;
+    position: relative;
+}
+.CrousalHomeContainerImageDiv
+{
+    height: 70vh;
+    width: 100vw;
+    background-color: black;
+}
+.CrousalHomeContainerImage{
+    height: 70vh;
+    width: 100vw;
+    object-fit: cover;
+    position: relative;
+}
+
+.caveat-custom{
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+.CrousalHomeContainerTextHead
+{
+    font-size:5vw;
+    display: flex;
+    width: 100%;
+}
+.CrousalHomeContainerTextDesc
+{
+   max-width: 40vw;
+   font-size: 2.5vw;
+}
+}
+
+@media screen and (max-width:665px)
+{  
+    .CrousalHomeMainContainer
+{
+    height: 40vh;
+    width: 100vw;
+    position: relative;
+
+}
+.CrousalHomeContainerImageDiv
+{
+    height: 40vh;
+    width: 100vw;
+    background-color: black;
+}
+.CrousalHomeContainerImage{
+    height: 40vh;
+    width: 100vw;
+}
+.CrousalHomeContainerTextDiv
+{
+    height: 50vh;
+    position: absolute;
+    top:-5%;
+}
+
+.CrousalHomeContainerTextHead
+{
+    font-size:5vw;
+    display: flex;
+    width: 100%;
+}
+.CrousalHomeContainerTextDesc
+{
+   max-width: 40vw;
+   font-size: 2.5vw;
+}
+}
+
+@media screen and (max-width:545px)
+{  
+    .CrousalHomeMainContainer
+{
+    height: 65vh;
+    width: 100vw;
+    position: relative;
+
+}
+.CrousalHomeContainerImageDiv
+{
+    height: 65vh;
+    width: 100vw;
+    background-color: black;
+}
+.CrousalHomeContainerImage{
+    height: 65vh;
+    width: 100vw;
+}
+.CrousalHomeContainerTextDiv
+{
+    height: 50vh;
+    position: absolute;
+    top:40%;
+    left: 0;
+    right: 0;
+}
+.CrousalHomeContainerTextHead
+{
+    font-size:7.5vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.caveat-custom{
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+  }
+.CrousalHomeContainerTextDesc
+{
+    max-width: 100vw;
+   width: 100vw;
+   font-size: 4vw;
+   display: flex;
+   justify-content: center;
+   font-weight: 500;
+}
+}

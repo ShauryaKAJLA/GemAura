@@ -1,8 +1,13 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import sin from '../../assets/sin.jpg'
+import logo from '../../assets/Backless_bg.png'
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 const Signup = () => {
+  const [isShown,SetIsShown]=useState(false);
+  const [isShownMatch,SetIsShownMatch]=useState(false);
   const { 
     register, 
     handleSubmit, 
@@ -44,9 +49,9 @@ const onSubmit =async (data) =>{
         
       <input  className='pp inp fo hover:scale-105 transition-all' placeholder='Email'  {...register("Email",{required:{value:true,message:"This field is required"},minLength:{value:11,message:"Invalid Email name"},pattern:{value:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,message:"Invalid Email"}})}  />
             <div className='flex justify-center w-full text-red-300'>{errors.Email&&errors.Email.message}</div>
-            <input  className='pp inp fo hover:scale-105 transition-all' placeholder='password' {...register("password", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"},pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/,message:"Generate a strong password"}})} />
+            <div className='relative'><input type={isShown?"text":"password"}  className='pp inp fo hover:scale-105 transition-all' placeholder='password' {...register("password", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"},pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$/,message:"Generate a strong password"}})} /><div className='absolute top-[30%] right-3 hover:scale-110 text-white '> {isShown?<FaEye onClick={()=>SetIsShown(!isShown)}/>:<FaEyeSlash  onClick={()=>SetIsShown(!isShown)}/>}</div></div>
             <div className='flex justify-center w-full text-red-300'>{errors.password&&errors.password.message}</div>   
-            <input  className='pp inp fo hover:scale-105 transition-all' placeholder='Re-enter password' {...register("enter", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"}})} />
+            <div className='relative'><input type={isShownMatch?"text":"password"} className='pp inp fo hover:scale-105 transition-all' placeholder='Re-enter password' {...register("enter", { required:{value:true,message:"This field is required"},minLength:{value:8,message:"Enter longer password"}})} /> <div className='absolute top-[30%] right-3 hover:scale-110 text-white '> {isShownMatch?<FaEye onClick={()=>SetIsShownMatch(!isShownMatch)}/>:<FaEyeSlash  onClick={()=>SetIsShownMatch(!isShownMatch)}/>}</div></div>
             <div className='flex justify-center w-full text-red-300'>{errors.enter&&errors.enter.message}</div>   
             
       <div className='flex justify-center w-full text-red-300'>{errors.match&&errors.match.message}</div>   
@@ -57,7 +62,7 @@ const onSubmit =async (data) =>{
     </div>
       <Link to="/Login_SignUp/login" className='mt-3 text-custom hover:underline md:text-base text-sm'>Have an account? / login</Link>
     </div>
-    <div className='contimg tra'><img src={sin} className='img'/></div> </div>
+    <div className='contimg tra '><img src={sin} className='img '/><div className='  absolute z-[1] bottom-0 right-0 w-[150px] LSlogo'><Link to="/"> <img src={logo}  alt="" /></Link></div></div> </div>
   )
 }
 

@@ -10,12 +10,7 @@ export function Product()
 {
     const products =useSelector(state=>state.FilteredProducts.products)
     const dispatch=useDispatch()
-    const handelStock=(item)=>{
-     if(item.instock){}
-    //  dispatch(addToCart(item))
-    else
-     toast.error("item is not in stock")
-    }
+  
     return(
 <div className='flex flex-col  overflow-x-hidden'>
     <div className='filter'>

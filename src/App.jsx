@@ -3,11 +3,14 @@ import NavBar from './pages/Reusable/Navbar/NavBar'
 import Footer from "./pages/Reusable/Footer/Footer"
 import { Outlet } from "react-router-dom"
 function App() {
-
+const handelCheckMenu=()=>{
+  if(document.querySelector(".MainMenu").style.display=="flex")
+  document.querySelector(".MainMenu").style.display="none"
+}
   return (
     <div className='overflow-hidden app '>
       <NavBar />
-      <div className="min-h-[92vh] h-[92.2vh]   overflow-x-hidden overflow-y-scroll relative flex flex-col justify-between">
+      <div className="min-h-[92vh] h-[92.2vh]   overflow-x-hidden overflow-y-scroll relative flex flex-col justify-between" onMouseEnter={handelCheckMenu}>
       <Outlet />
       <Footer/>
       </div>

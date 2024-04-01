@@ -195,6 +195,12 @@
         justify-content: center;
         align-items: center;
      }
+     .LSlogo
+     {
+        top: 6vh;
+        width: 100px;
+        left: 25px;
+     }
 }
 @media screen and (max-width:376px)
  {

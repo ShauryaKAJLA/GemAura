@@ -73,12 +73,12 @@ to
 {
       position: absolute;
       flex-direction: column;
-      top: 50px;
+      top: 0;
       background:rgb(102, 43, 43);
       width: 40vw;
       min-width: 150px;
       height: auto;
-      min-height: 50vh;
+      min-height: 100vh;
       left: 0;
       align-items: center;    
       row-gap: 10px;
@@ -102,11 +102,12 @@ to
 {
     position: relative;
     top: 0;
-    padding:0;
+    padding:3px;
     left: 0;
     justify-content: center;
     align-items: center;
     margin-left: 1vw;
+    width: 20vw;
 }
 .MainOpt
 {
@@ -159,3 +160,4 @@ to
     border-inline-end-width: 0px;
 }
 }
+

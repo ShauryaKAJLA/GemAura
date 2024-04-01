@@ -26,7 +26,7 @@
     height: 80vh;
     width: 100vw;
     object-fit:cover;
-    object-position:top;
+    object-position: center;
 
 }
 
@@ -70,3 +70,9 @@
         height:360px!important;
     }
 }
+.bonheur-royale-regular {
+    font-family: "Bonheur Royale", cursive;
+    font-weight:700;
+    font-style: normal;
+  }
+  

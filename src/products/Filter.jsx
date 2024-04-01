@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeGender, changePrice ,changeMetal, changeGem } from "./filterSlice";
 import { products } from "../data/products";
 import { useMemo } from "react";
 import { changeProducts } from "./FilteredProductsSlice";
 const Filter=()=>{
+ 
+    
     const filter=useSelector(state=>state.filter.filter)
+    
     const dispatch=useDispatch();
     let findmetallist=["All"];
     let findgemlist=["All"]
@@ -18,7 +21,7 @@ const Filter=()=>{
             }
             if(!findmetallist.find(i=>i==item.metal.type))
             {
-               findmetallist.push(item.metal.type)
+                findmetallist.push(item.metal.type)
             }
             if(!findgemlist.find(i=>i==item.Gem.type))
             {
@@ -66,7 +69,7 @@ const Filter=()=>{
         dispatch(changeMetal(metal))
     },[metal])
     useEffect(()=>{
-       dispatch(changeGem(Gem));
+        dispatch(changeGem(Gem));
     },[Gem])
     useEffect(()=>{
         dispatch(changeProducts(filter))
@@ -77,8 +80,8 @@ const Filter=()=>{
      <div className="Filter w-[100vw] text-2xl font-medium justify-center flex my-3">Filters</div>
      <div className="flex justify-around">
      <div className="text-custom flex gap-[1vw]  sm:text-lg text-sm">Price: <div className="flex flex-col sm:text-base text-xs">  <input type="range" max={mx} min={mn} value={value} onChange={(e)=>handelPricechange(e)} className="sm:w-[10vw] w-[70px]  h-1 my-1 rounded-lg appearance-none cursor-pointer range-sm dark:bg-gray-600"/> <div className="flex justify-center range sm:text-base text-xs"> &#x20B9; {value}</div></div></div>
-    <div className="text-custom  sm:text-lg text-sm gap-[1vw] flex">Gender: <div><select    value={gender} onChange={(e)=>handelGenderChange(e)} className="text-black md:w-[80px]  sm:w-[50px] w-[37px] sm:text-base text-sm">
-        <option value="All"  >All</option>
+    <div className="text-custom  sm:text-lg text-sm gap-[1vw] flex" >Gender: <div><select     value={gender} onChange={(e)=>handelGenderChange(e)} className="text-black md:w-[80px]  sm:w-[50px] w-[37px] sm:text-base text-sm">
+        <option value="All" >All</option>
         <option value="m">Men</option>
         <option value="w">Women</option>
         <option value="k">Kids</option>

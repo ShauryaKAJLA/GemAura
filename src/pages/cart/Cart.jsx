@@ -22,7 +22,7 @@ export function Cart() {
                    { cart.length  ? 
             <div className="lg:w-[70vw] md:w-[80vw]  sm:w-[95vw] w-[99vw] border-t  mt-[5vh]">
            
-            {cart.map(item=><div key={item.id} className="flex justify-between border-b my-[5vh] py-[2vh] ">
+            {cart.map(item=><div key={item.hasOwnProperty('size')?item.secId:item.id} className="flex justify-between border-b my-[5vh] py-[2vh] ">
                     <div className="flex gap-x-[2vw] h-[90px] ">
                   <Link to={`/productInfo/${item.id}`}>
                   
@@ -39,7 +39,7 @@ export function Cart() {
                                     </div>
                                     </Link>
                                     <div className=" sm:text-sm text-xs text-custom font-semibold ">
-                                    <button onClick={() => dispatch(removeItem(item.id))} className="hover:underline"><MdDelete size={25}/></button>
+                                    <button onClick={() =>dispatch(removeItem(item))} className="hover:underline"><MdDelete size={25}/></button>
                                     {!item.instock&& <div className=" text-red-600 flex  items-center "><MdError/>&nbsp; Out of stock</div> }
                                     </div>
                                 </div>
@@ -53,9 +53,9 @@ export function Cart() {
                                         Quantity:
                                     </div>
                                     <div className="w-[55px] justify-between flex px-1 text-base h-[25px] items-center customIncrement ">
-                                    <button onClick={() => dispatch(reduceQuantity(item.id))} className="flex justify-center items-center sm:text-xl text-lg">-</button>
+                                    <button onClick={() => dispatch(reduceQuantity(item))} className="flex justify-center items-center sm:text-xl text-lg">-</button>
                                     <div className="flex justify-center items-center">{item.quantity}</div>
-                                    <button onClick={() => dispatch(addQuantity(item.id))} className="flex justify-center items-center sm:text-xl text-lg">+</button>
+                                    <button onClick={() => dispatch(addQuantity(item))} className="flex justify-center items-center sm:text-xl text-lg">+</button>
                                     </div>
 
                                 </div>
@@ -64,11 +64,11 @@ export function Cart() {
                                     <div>{(item.Gem.totalPrice+item.metal.pricePerGram*item.metal.weightInGram)*item.quantity}</div>
                                 </div>
 
-                                {item.type_of.toLowerCase()=="ring"&&<div className="flex">
-                                    <div className="w-[10vw] head">Change Size: </div>
-                                    <div><input type="number" value={item.size} onChange={(e)=>dispatch(changeSizeCart({id:item.id,size:e.target.value}))} className='inp sm:w-[55px] w-[50px] h-[30px]' /></div>
-                                </div>
-                                }
+                               {item.hasOwnProperty('size')&& <div className="flex">
+                               <div className="w-[10vw] head">Size: </div>
+                                    <div className=' sm:w-[55px] w-[50px] sm:h-[30px] h-[20px] flex justify-center items-center sm:text-base text-xs'>{item.size}</div>
+                              
+                               </div> }
                                 </div>
                             </div>
                )
