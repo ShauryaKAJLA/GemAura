@@ -35,6 +35,7 @@ export const FilteredProductsSlice=createSlice({
                 {
                     dummy=pro.filter(item=>item.gender=='w')
                 }
+
           
                 if((action.payload.search.toLowerCase().includes('men')&&!action.payload.search.toLowerCase().includes('women'))||(action.payload.search.toLowerCase().includes('man')&&!action.payload.search.toLowerCase().includes('woman'))||action.payload.search.toLowerCase().includes('boy')||action.payload.search.toLowerCase().includes('boys')||(action.payload.search.toLowerCase().includes('mens')&&!action.payload.search.toLowerCase().includes('womens'))||action.payload.search.toLowerCase().includes('gents')||action.payload.search.toLowerCase().includes('boys'))
                 {
@@ -44,16 +45,15 @@ export const FilteredProductsSlice=createSlice({
                 {
                   dummy=pro.filter(item=>item.gender=='k')
                 }
-                
-              if(dummy.length!=0)
-              pro=dummy.filter(item=>item)
+               if(dummy.length!=0)
+               pro=dummy.filter(item=>item)
+
                 types.forEach(item=>{
                   if(action.payload.search.toLowerCase().includes(item.toLowerCase())||item.toLowerCase().includes(action.payload.search.toLowerCase()))
                   {
                     dummy=dummy.filter(i=>i.type_of.toLowerCase()==item.toLowerCase())
                   }
                 })
-                if(dummy.length!=0)
                 pro=dummy.filter(item=>item)
 
                 metal.forEach(item=>{
@@ -63,7 +63,6 @@ export const FilteredProductsSlice=createSlice({
                   }
                 })
                
-                if(dummy.length!=0)
                 pro=dummy.filter(item=>item)
                 gem.forEach(item=>{
                   if(action.payload.search.toLowerCase().includes(item.toLowerCase())||item.toLowerCase().includes(action.payload.search.toLowerCase()))
@@ -72,7 +71,6 @@ export const FilteredProductsSlice=createSlice({
                   }
                 })
               
-                if(dummy.length!=0)
                 pro=dummy.filter(item=>item)
 
               }

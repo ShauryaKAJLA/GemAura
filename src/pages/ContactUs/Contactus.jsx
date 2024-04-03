@@ -18,8 +18,9 @@ const Contactus = () => {
   return (
     <div>
         <div className='ContactImgContainer realtive'>
-            <div className=' absolute top-5 md:text-7xl sm:text-5xl text-4xl w-[100vw] flex items-center justify-center font-semibold  text-rose-900 bonheur-royale-regular'>Contact us</div>
+            <div className=' absolute top-5 right-[40vw] md:text-7xl sm:text-5xl text-4xl w-[100vw] flex items-center justify-center font-semibold text-white  dancing-script-Customtext'>Contact us</div>
             <img src={image} alt="" />
+
         </div>
         <div className='flex flex-wrap'>
       <div className="ContinerOfContent">
