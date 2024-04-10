@@ -688,3 +688,93 @@ padding-right: 2vw;
         margin-left: auto;
     }
 }
+
+
+
+/* Products1 */
+
+.Products1
+{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+}
+
+.Products1Maindiv
+{
+    width: 85vw;
+    display: flex;
+    flex-direction: column;
+    margin-right: 7.5vw;
+    margin-left: 7.5vw;
+    margin-top: 4vw;
+}
+.Products1productDiv
+{
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+.Products1ImageDiv
+{
+    width: 100%;
+    height: 180px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Products1ImageDiv img
+{
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    object-position: center;
+}
+.Products1DataDiv
+{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width:460px)
+ {
+   
+
+.Products1productDiv
+{
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+.Products1ImageDiv
+{
+    width: 100%;
+    height: 130px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Products1ImageDiv img
+{
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    object-position: center;
+}
+.Products1DataDiv
+{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    color: white;
+}
+}

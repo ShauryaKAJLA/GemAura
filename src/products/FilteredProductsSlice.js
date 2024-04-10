@@ -49,12 +49,18 @@ export const FilteredProductsSlice=createSlice({
                pro=dummy.filter(item=>item)
 
                 types.forEach(item=>{
-                  if(action.payload.search.toLowerCase().includes(item.toLowerCase())||item.toLowerCase().includes(action.payload.search.toLowerCase()))
+                  if(action.payload.search.toLowerCase().includes(item.toLowerCase())||item.toLowerCase().includes(action.payload.search.toLowerCase())||item.toLowerCase().startsWith(action.payload.search.toLowerCase())||action.payload.search.toLowerCase().startsWith(item.toLowerCase())||item.toLowerCase().endsWith(action.payload.search.toLowerCase())||action.payload.search.toLowerCase().endsWith(item.toLowerCase()))
                   {
-                    dummy=dummy.filter(i=>i.type_of.toLowerCase()==item.toLowerCase())
+                    dummy=dummy.filter(i=>i.type_of.toLowerCase().includes(item.toLowerCase()))
+                    console.log(dummy)
                   }
                 })
-                pro=dummy.filter(item=>item)
+                if(dummy.length!=0)
+                dummy.map(item=>{
+                 if(!pro.find(i=>i.id==item.id))
+                  pro.push(item)
+            }
+              )
 
                 metal.forEach(item=>{
                   if(action.payload.search.toLowerCase().includes(item.toLowerCase())||item.toLowerCase().includes(action.payload.search.toLowerCase()))

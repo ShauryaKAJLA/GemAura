@@ -12,10 +12,11 @@ import Slider from "react-slick";
 import BannerFirstPhoto from '../../assets/homePage/BannerFirstPhoto.png'
 import BannerSecondPhoto from '../../assets/homePage/BannerSecondPhoto.png'
 import {products} from '../../data/products'
+import genderData from './genderData';
 const Home = () => {
   const [pdts,setpdts]=useState([])
   useEffect(()=>{
-    setpdts(products.filter(item=>item))
+    setpdts(products.filter((item,index)=>index<=6))
   },[products])
   function Arrow(props) {
     const { className, style, onClick } = props;
@@ -156,19 +157,32 @@ const Home = () => {
 
          {/* Products1 */}
          <div className='Products1'>
-          <div className=''>
-            Check All Products
+          <div className='w-screen flex justify-end pr-[2vw] CustomCatagoryColor font-semibold'>
+            Check All Products &rarr;
           </div>
           <div className='Products1Maindiv'>
-          <Slider {...settings}>
+          <Slider {...settings} >
                    {pdts.map(item=><div className='Products1productDiv'>
-                    <div className='Products1ImageDiv'><img src={item.images[0]} alt="" /></div>
-                    <div className='Products1DataDiv'>
-                      <div>{item.name}</div>
-                      <div>{item.metal.weightInGram}</div>
+                    <div className='Products1ImageDiv rounded-t-2xl'><img src={item.images[0]} alt="" /></div>
+                    <div className='Products1DataDiv rounded-b-2xl flex flex-col gap-[2vh]'>
+                      <div className='w-[100%] flex justify-center items-center md:text-sm text-xs'>{item.name}</div>
+                      <div className='flex justify-between px-1  md:px-2'><div className=' text-xs font-thin md:text-sm'>  &#8377; {item.metal.weightInGram*item.metal.pricePerGram+item.Gem.totalPrice}</div><div className={item.instock?'text-green-700 text-xs sm:text-sm':'text-red-700 text-xs md:text-sm'}>{item.instock?"in stock":"Out of stock"}</div></div>
                     </div>
                    </div> )}
                       </Slider>
+          </div>
+         </div>
+
+
+         {/* Gender */}
+
+         <div className='mb-[10vh]'>
+          <div className='w-screem md:text-3xl sm:text-2xl text-xl CustomCatagoryColor flex justify-center items-center mb-10 '>Shop by Gender</div>
+          <div className='flex flex-wrap w-screen justify-around gap-y-[4vh]'>
+          {genderData.map(item=> <div className='sm:w-[30vw] w-[300px] border bg-black rounded-2xl overflow-hidden'>
+            <div className='sm:w-[30vw] 300px h-[80%]'><img src={item.src} className=' w-[100%] h-[100%] object-cover obj' alt="" /></div>
+            <div className='CustomCatagoryColor  text-xl justify-center flex items-center h-[20%]'>{item.name}</div>
+          </div> )}
           </div>
          </div>
     </div>
