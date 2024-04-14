@@ -19,7 +19,7 @@ const Filter=()=>{
             {
                 l=item.metal.pricePerGram*item.metal.weightInGram+item.Gem.totalPrice;
             }
-            if(!findmetallist.find(i=>i==item.metal.type))
+            if(!findmetallist.find(i=>i.toLowerCase()==item.metal.type.toLowerCase()))
             {
                 findmetallist.push(item.metal.type)
             }
