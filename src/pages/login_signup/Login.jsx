@@ -5,28 +5,36 @@ import sin from '../../assets/sin.jpg'
 import logo from '../../assets/Backless_bg.png'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+
+
+import axios from "axios";
+
 const Login = () => {
+  const [message, setMessage] = useState('');
   const [isShown,SetIsShown]=useState(false);
-  const navigate=useNavigate();
         const { 
             register, 
             handleSubmit, 
             setError,
             formState: { errors,isSubmitted,isSubmitting } } = useForm();
-            const submitData=()=>{
-              return new Promise((resolve,reject)=>{
-              setTimeout(()=>{
-                resolve();
-              },1000)
-            })
-            }
-        const onSubmit =async (data) =>{ 
-             await submitData();
-            console.log(data)
-             setError("LoggedErr",{message:"Invalid details"})
-             navigate("/")
-        };
-    
+            const navigate=useNavigate();
+            
+            const onSubmit = async (data) => {
+              const { Email, password } = data;
+              if (Email && password) {
+                try {
+                  const response = await axios.post('http://localhost:5000/login', data);
+                  console.log(response.data.message);
+                  setMessage(response.data.message);
+                  if (response.data.message === "Login successful") {
+                    navigate('/');
+                  }
+                } catch (error) {
+                  console.error('Error:', error);
+                  setMessage(error.response.data.message);
+                }
+              }
+            };
   return (
     <div className='flex flex-row papa'>
     <div className=' tra contlog flex flex-col justify-center'>
@@ -49,6 +57,7 @@ const Login = () => {
     </form>
         </div>
       </div>
+      {message && <div className='message' style={{ color: 'rgba(209, 69, 69, 0.80)' }}>{message}</div>}
     <Link to="/Login_SignUp/" className='mt-3 text-custom hover:underline md:text-base text-sm ' >Dont Have an account? / SignUp</Link>
   </div>
   <div className='contimg tra1' ><img src={sin} className=' img z-[-1]'/><div className='absolute z-[1] bottom-0 left-0 w-[150px] LSlogo'><Link to="/"> <img src={logo}  alt="" /></Link></div></div>
